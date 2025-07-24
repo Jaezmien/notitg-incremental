@@ -1,0 +1,102 @@
+<ActorFrame
+	InitCommand="%melody(function(self)
+		if self:getaux()==1 then return end self:aux(1)
+		init_hooks{'game setup', function() mod_plr(function(p) p:hidden(1) end) end}
+
+		init_hooks{'game init', function()
+			lua{'fg/utils'}
+			lua{'fg/game'}
+			lua{'fg/items'}
+			lua{'fg/shop'}
+			lua{'fg/render'}
+		end}
+	end)"
+><children>
+
+	<Layer
+		Type="ActorFrame"
+		Name="Game"
+	><children>
+		<Layer
+			File="receptor"
+			Name="Receptor"
+			InitCommand="xy,SCREEN_CENTER_X,SCREEN_CENTER_Y"
+		/>
+
+		<Layer
+			Type="ActorFrame"
+			Name="Note Ring"
+			InitCommand="xy,SCREEN_CENTER_X,SCREEN_CENTER_Y"
+		><children>
+			<Layer File="notes/note 4th.model" Name="4th"/>
+			<Layer File="notes/note 8th.model" Name="8th"/>
+			<Layer File="notes/note 12th.model" Name="12th"/>
+			<Layer File="notes/note 16th.model" Name="16th"/>
+			<Layer File="notes/note 32nd.model" Name="32nd"/>
+			<Layer File="notes/note 64th.model" Name="64th"/>
+		</children></Layer>
+
+		<Layer
+			Type="BitmapText"
+			Font="fonts/_eurostile.ini"
+			Name="Steps"
+			InitCommand="xy,SCREEN_CENTER_X,SCREEN_CENTER_Y*0.25;addy,-15;vertalign,bottom;zoom,1.5"
+		/>
+		<Layer
+			Type="BitmapText"
+			Font="fonts/_eurostile.ini"
+			Name="Steps Label"
+			Text="Steps Pressed"
+			InitCommand="xy,SCREEN_CENTER_X,SCREEN_CENTER_Y*0.25;addy,15;vertalign,top"
+		/>
+		<Layer
+			Type="BitmapText"
+			Font="fonts/_eurostile.ini"
+			Name="BPM"
+			InitCommand="xy,SCREEN_CENTER_X,SCREEN_CENTER_Y*1.75;addy,0;vertalign,bottom;zoom,0.5"
+		/>
+	</children></Layer>
+
+	<Layer
+		Type="ActorFrame"
+		Name="Shop"
+		InitCommand="x,SCREEN_WIDTH"
+	><children>
+		<Layer
+			Type="Quad"
+			InitCommand="xy,SCREEN_CENTER_X*0.5,SCREEN_CENTER_Y;addx,0;zoomto,SCREEN_CENTER_X,SCREEN_HEIGHT;diffuse,0.1,0.1,0.1,1"
+		/>
+		<Layer
+			Type="Quad"
+			InitCommand="xy,SCREEN_CENTER_X*0.5,SCREEN_CENTER_Y;addx,4;zoomto,SCREEN_CENTER_X,SCREEN_HEIGHT;diffuse,0.15,0.15,0.15,1"
+		/>
+		<Layer
+			Type="Quad"
+			InitCommand="xy,SCREEN_CENTER_X*0.5,SCREEN_CENTER_Y;addx,8;zoomto,SCREEN_CENTER_X,SCREEN_HEIGHT;diffuse,0.2,0.2,0.2,1"
+		/>
+
+		<Layer
+			Type="BitmapText"
+			Font="fonts/_eurostile.ini"
+			Text="Shop"
+			InitCommand="xy,20,20;horizalign,left"
+		/>
+		
+		<Layer
+			Type="BitmapText"
+			Font="fonts/_eurostile.ini"
+			Text="&up;/&down; - Scroll  &right; - Purchase"
+			InitCommand="xy,105,25;horizalign,left;zoom,0.5"
+		/>
+
+		<Layer
+			Type="ActorFrame"
+			Name="Shop Contents"
+			InitCommand="xy,25,60"
+		><children>
+			<Layer Type="Quad" Name="Highlight" InitCommand="diffuse,1,1,1,0.2"/>
+			<Layer Type="BitmapText" Font="fonts/_eurostile.ini" Name="Text" InitCommand="shadowlength,0" />
+		</children></Layer>
+	</children></Layer>
+
+</children></ActorFrame>

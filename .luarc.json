@@ -1,0 +1,10 @@
+{
+    "diagnostics.disable": [
+        "undefined-global",
+        "undefined-field",
+        "deprecated",
+        "lowercase-global",
+        "unused-vararg",
+        "redefined-local"
+    ]
+}
